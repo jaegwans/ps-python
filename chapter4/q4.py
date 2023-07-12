@@ -18,24 +18,38 @@ dx = [0,1,0,-1]
 dy = [-1,0,1,0]
 dd = [0,1,2,3]
 
-log = []
+log = [[ux,uy]]
 
 stack = 0
 
 while True:
+    if stack == 5: ## 갈곳이 없으면 # 왜 5?  4면을 다 돌아보려면 5로 해야함
+        stack = 0 # 스택 초기화
+        if mapArr[uy+dy[ud-2]][ux+dx[ud-2]] == 0: # 뒤가 육지면
+            ux += dx[ud-2] # 뒤로 이동
+            uy += dy[ud-2]
+            print(ux,uy,ud,'동작하나?')
+            continue
+        else: #뒤가 바다면
+            print(ux,uy,ud)
+            break # 멈춤
+            
+        
     
-    if mapArr[uy+dy[ud-1]][ux+dx[ud-1]] == 0 and [uy+dy[ud-1],ux+dx[ud-1]] not in log: #육지며 가보지 않은 곳이면
+    if mapArr[uy+dy[ud-1]][ux+dx[ud-1]] == 0 and [uy+dy[ud-1],ux+dx[ud-1]] not in log: #좌측이 육지며 가보지 않은 곳이면
         ud = dd[ud-1] #회전 후 
         #전진
         ux += dx[ud]
         uy += dy[ud]
-        log.append[ux,uy]
-    else:
-         ud = dd[ud-1] #회전
+        log.append([ux,uy])
+        print(ux,uy,ud)
+    else: # 좌측이 육지며 가보지 않은것이 아닌 나머지
+         ud = dd[ud-1] #회전 
          stack += 1
     
-    if stack == 4: ## 갈곳이 없으면
-        stack = 0 # 스택 초기화
+print(log)
+print(len(log))
+   
         
         
         
