@@ -17,7 +17,7 @@ for target in resList:
     # middle = end + start//2
     while start<=end:
         print(start,end)
-        mid = (end + start) // 2
+        mid = (end + start) // 2 # mid 초기값 설정은 매번 해주어야 함 
         if reqList[mid] == target:
             result.append('yes')
             break
