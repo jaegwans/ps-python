@@ -3,9 +3,9 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
-d = [0] * 30001 # 메모이제이션 생성 
+d = [0] * 30001 # 메모이제이션 생성 , 수와 횟수를 기록
 
-for i in range(2, n+1): # n까지 수행한다.
+for i in range(2, n+1): # n까지 수행한다. 2부터 n 까지 수행 
     
     #뒤로 갈수록 덮어씌우기때문에 우선순위가 높음
     # +1 은 횟수이다.
